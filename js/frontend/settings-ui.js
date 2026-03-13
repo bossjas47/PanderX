@@ -78,15 +78,14 @@ window.closeSidebar = function() {
 // Dropdown Management
 // ============================================
 
-window.toggleDropdown = function(e) {
+window.toggleProfileDropdown = function(e) {
     if (e) e.stopPropagation();
     const dropdown = document.getElementById('profileDropdown');
-    const arrow = document.getElementById('dropdownArrow');
-    
     if (!dropdown) return;
-    const isOpen = dropdown.classList.toggle('active');
-    if (arrow) arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+    dropdown.classList.toggle('active');
 };
+
+window.toggleDropdown = window.toggleProfileDropdown;
 
 // ============================================
 // Navigation Functions
@@ -102,6 +101,23 @@ window.goToRegister = function() {
 
 window.promptChangePassword = function() {
     window.location.href = './profile.html#changepass';
+};
+
+window.handleMenuClick = function(action) {
+    switch(action) {
+        case 'profile':
+            window.location.href = './profile.html';
+            break;
+        case 'orders':
+            window.location.href = './orders.html';
+            break;
+        case 'topup':
+            window.location.href = './topup.html';
+            break;
+        case 'settings':
+            window.location.href = './settings.html';
+            break;
+    }
 };
 
 // ============================================
